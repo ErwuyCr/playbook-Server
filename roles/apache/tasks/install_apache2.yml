@@ -1,0 +1,15 @@
+---
+ #These tasks install apache2
+
+ - name: Install apache2
+   apt: name={{ item }} state=present update_cache=yes
+   with_items:
+     - apache2
+     - apache2-utils
+
+ - name: apache2 service state
+   service: name=apache2 state=started enabled=yes
+ 
+ - name: create the index.html file
+   template: src=index.html.j2 dest=/var/www/html/prueba.html
+     

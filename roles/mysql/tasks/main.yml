@@ -5,9 +5,20 @@
    apt: name={{ item }} state=present
    with_items:
      - mysql-server
-     - MySQL-python
+     - python-mysqldb
 
  - name: Start MySQL Service 
    service: name=mysql state=started enabled=yes
 
  - name: Create a Database
+   mysql_db: name={{ db_name }} state=present
+
+ - name: Create a User
+   mysql_user: > 
+     name={{ db_user }}
+     password={{ db_pass }}
+     priv=*.*:ALL
+ 
+ - name: Start Mysql Service
+   service: name=mysql state=started enabled=yes
+

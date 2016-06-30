@@ -6,4 +6,5 @@
    become: yes
 
    roles:
-     - apache
+     - update_cache
+     - mysql 

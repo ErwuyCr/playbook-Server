@@ -1,0 +1,8 @@
+---
+  # The variables file 
+
+  db_name: myBlog
+  db_port: 3306
+  db_user: capi
+  db_pass: 1q2w3e
+
